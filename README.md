@@ -82,7 +82,7 @@ https://iris-api-340394144067.us-central1.run.app/health
 Response:
 ```json
 {"status":"healthy","model_loaded":true}
-{"status":"healthy","model_loaded":true}
+
 ```
 
 
@@ -90,12 +90,29 @@ Response:
 # Notes on IAM Restrictions
 Public unauthenticated invocation could not be enabled due to organizational IAM restrictions associated with an NIH-managed Google Cloud account. Authenticated invocation was used instead, which is a standard approach in secure production environments.
 
+
+# Cloud Functions Deployment Attempt
+A deployment attempt was made using Google Cloud Functions (Gen 2).  
+However, deployment failed due to organization-level IAM restrictions on the
+Cloud Build service account associated with an NIH-managed Google Cloud project.
+
+The error indicates missing permissions for:
+`roles/cloudbuild.builds.builder`
+
+This restriction is enforced at the organizational level and cannot be modified
+by project users. This behavior is expected in enterprise and government-managed
+Google Cloud environments.
+
+![Cloud Function IAM Error](screenshots/cloud-function-permission-error.png)
+
+
 # Conclusion
 This milestone demonstrates a complete ML serving lifecycle:
 -Model training and serialization
 -API-based inference service
 -Docker containerization
--Artifact Registry image managementCloud Run deployment
+-Artifact Registry image management
+-Cloud Run deployment
 -Secure HTTPS verification
 
 The deployed service is production-ready and scalable using Google Cloud Run.
