@@ -13,6 +13,7 @@ A trained Iris classification model is containerized and deployed as a scalable 
 - Google Artifact Registry
 - Google Cloud CLI (`gcloud`)
 - scikit-learn
+- Google Cloud Functions (Gen2)
 
 
 # Project Structure
