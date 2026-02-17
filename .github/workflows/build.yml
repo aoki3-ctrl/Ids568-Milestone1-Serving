@@ -3,8 +3,10 @@ name: Milestone 2 CI/CD
 on:
   push:
     branches: [ main ]
-    paths:
-      - 'module3/milestone2/**'
+  pull_request:
+    branches: [ main ]
+
+    
 
 permissions:
   contents: read
@@ -40,7 +42,7 @@ jobs:
   build-and-push:
     needs: test
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
