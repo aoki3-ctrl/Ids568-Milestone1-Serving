@@ -59,4 +59,4 @@ jobs:
         with:
           context: ./module3/milestone2
           push: true
-          tags: ghcr.io/${{ github.repository_owner }}/milestone2-app:1.0.0
+          tags: ghcr.io/${{ github.repository_owner }}/milestone2-app:v1.0.0
